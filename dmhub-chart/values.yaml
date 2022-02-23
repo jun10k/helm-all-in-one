@@ -1,11 +1,24 @@
-dmhub-ui:
-  repository: nginx
-  tag: "1.21.6"
-dmhub-migration:
-  repository: nginx
-  tag: "1.21"
-dmhub-mgr:
-  repository: nginx
-  tag: "1.20.2"
-
 namespace: default
+
+images:
+  dmhub-ui:
+    repository: hello-world
+    tag: "latest"
+  dmhub-migration:
+    repository: hello-world
+    tag: "latest"
+  dmhub-mgr:
+    repository: hello-world
+    tag: "latest"
+
+hookjob:
+  name: hello-world
+  lable: "hello-world"
+  image:
+    pullPolicy: IfNotPresent
+    image: hello-world
+    tag: "latest"
+
+
+
+

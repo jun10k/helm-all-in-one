@@ -1,0 +1,10 @@
+images:
+  dmhub-ui:
+    repository: hello-world
+    tag: "linux"
+  dmhub-migration:
+    repository: hello-world
+    tag: "nanoserver-ltsc2022"
+  dmhub-mgr:
+    repository: hello-world
+    tag: "nanoserver-1809"

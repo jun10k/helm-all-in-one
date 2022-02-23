@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "dmhub-ui.fullname" -}}
+{{- define "app.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -33,9 +33,9 @@ Create chart name and version as used by the chart label.
 {{/*
 Common labels
 */}}
-{{- define "dmhub-ui.labels" -}}
+{{- define "app.labels" -}}
 helm.sh/chart: {{ include "dmhub-ui.chart" . }}
-{{ include "dmhub-ui.selectorLabels" . }}
+{{ include "app.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,7 +45,7 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "dmhub-ui.selectorLabels" -}}
+{{- define "app.selectorLabels" -}}
 app.kubernetes.io/name: {{ include "dmhub-ui.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
