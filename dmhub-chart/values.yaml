@@ -1,4 +1,4 @@
-namespace: default
+namespace: clab
 
 images:
   dmhub-ui:
@@ -13,10 +13,10 @@ images:
 
 hookjob:
   name: hello-world
-  lable: "hello-world"
+  label: "hello-world"
   image:
     pullPolicy: IfNotPresent
-    image: hello-world
+    name: hello-world
     tag: "latest"
 
 

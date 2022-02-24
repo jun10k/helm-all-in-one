@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ .Values.hookjob.name }}-postUpgrade
+  name: {{ .Values.hookjob.name }}-post-upgrade
   namespace: {{ .Values.namespace }}
   labels:
     app: {{ .Values.hookjob.label }}
@@ -11,12 +11,12 @@ metadata:
 spec:
   template:
     metadata:
-      name: {{ .Values.hookjob.name }}-postUpgrade
+      name: {{ .Values.hookjob.name }}-post-upgrade
       labels:
         app: {{ .Values.hookjob.label }}
     spec:
       containers:
-        - name: {{ .Values.hookjob.name }}-postUpgrade
+        - name: {{ .Values.hookjob.name }}
           imagePullPolicy: {{ .Values.hookjob.image.pullPolicy }}
           image: {{ .Values.hookjob.image.name }}:{{ .Values.hookjob.image.tag }}
       restartPolicy: Never

@@ -1,8 +1,8 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ .Values.hookjob.name }}-preInstall
-  namespace: {{ .Values.namespace }}
+  name: {{ .Values.hookjob.name }}-pre-install
+  namespace: default
   labels:
     app: {{ .Values.hookjob.label }}
   annotations:
@@ -11,12 +11,12 @@ metadata:
 spec:
   template:
     metadata:
-      name: {{ .Values.hookjob.name }}-preInstall
+      name: {{ .Values.hookjob.name }}-pre-install
       labels:
         app: {{ .Values.hookjob.label }}
     spec:
       containers:
-        - name: {{ .Values.hookjob.name }}-preInstall
+        - name: {{ .Values.hookjob.name }}
           imagePullPolicy: {{ .Values.hookjob.image.pullPolicy }}
           image: {{ .Values.hookjob.image.name }}:{{ .Values.hookjob.image.tag }}
       restartPolicy: Never
